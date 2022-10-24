@@ -1,1 +1,1 @@
-web: gunicorn app:porto_app.py
+web: gunicorn app:app
