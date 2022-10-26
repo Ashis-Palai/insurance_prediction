@@ -67,6 +67,12 @@ def predict():
 
 #     return jsonify({'prediction': prediction})
 
+import SimpleHTTPServer, SocketServer
+PORT = 8000
+httpd = SocketServer.TCPServer(("", PORT), SimpleHTTPServer.SimpleHTTPRequestHandler)
+httpd.allow_reuse_address = True
+print "Serving at port", PORT
+httpd.serve_forever()
 
 if __name__ == '__main__':
-    app.run(debug=True, use_reloader=False, port=8519)
+    app.run(debug=True, use_reloader=False, port=PORT)
