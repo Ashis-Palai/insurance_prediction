@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup
 from flask_restful import Resource
 from collections.abc import Mapping
 import csv
+import SimpleHTTPServer, SocketServer
 
 
 # https://www.tutorialspoint.com/flask
@@ -67,7 +68,7 @@ def predict():
 
 #     return jsonify({'prediction': prediction})
 
-import SimpleHTTPServer, SocketServer
+
 PORT = 8000
 httpd = SocketServer.TCPServer(("", PORT), SimpleHTTPServer.SimpleHTTPRequestHandler)
 httpd.allow_reuse_address = True
